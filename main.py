@@ -33,6 +33,12 @@ def main():
             if asteroid.collision_detection(player):
                 print("Game Over!")
                 return
+        for shot in shots:
+            for asteroid in asteroids:
+                if shot.collision_detection(asteroid):
+                    shot.kill()
+                    asteroid.kill()
+
         pygame.display.flip()
         #clock.tick(60) pauses the loop of 1/60 of a second. Effectively capping FPS to 60
         #divide by 1000 to go from ms to s and store in dt for tracking
