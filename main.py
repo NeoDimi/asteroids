@@ -6,7 +6,7 @@ from asteroidfield import AsteroidField
 from shot import Shot
 
 def main():
-    print(pygame.init())
+    pygame.init()
     clock = pygame.time.Clock() #create a clock object
     dt = 0 #delta time used to track frame time
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -37,7 +37,7 @@ def main():
             for asteroid in asteroids:
                 if shot.collision_detection(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
         pygame.display.flip()
         #clock.tick(60) pauses the loop of 1/60 of a second. Effectively capping FPS to 60
